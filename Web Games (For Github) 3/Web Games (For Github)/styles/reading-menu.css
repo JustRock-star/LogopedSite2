@@ -1,0 +1,377 @@
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --tertiary-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.15);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.2);
+  --shadow-xl: 0 12px 32px rgba(0,0,0,0.25);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    overflow-x: hidden;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+    position: relative;
+}
+
+.text {
+    text-align: center;
+    font-size: 3.5rem;
+    color: white;
+    font-weight: 700;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    letter-spacing: -1px;
+    animation: fadeInDown 0.6s ease-out;
+    position: relative;
+    z-index: 10;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.vank, .bar, .barakapakcutyun {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
+    padding: 1.25rem 2.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+    border: none;
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 0.5px;
+    min-width: 280px;
+    height: auto;
+    text-align: center;
+    z-index: 10;
+    overflow: hidden;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.vank {
+    top: 25%;
+    background: var(--primary-gradient);
+    animation-delay: 0.1s;
+}
+
+.bar {
+    top: 40%;
+    background: var(--secondary-gradient);
+    animation-delay: 0.2s;
+}
+
+.barakapakcutyun {
+    top: 55%;
+    background: var(--tertiary-gradient);
+    animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.vank::before, .bar::before, .barakapakcutyun::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+.vank:hover::before, .bar:hover::before, .barakapakcutyun:hover::before {
+    left: 100%;
+}
+
+.vank:hover, .bar:hover, .barakapakcutyun:hover {
+    transform: translateX(-50%) translateY(-5px) scale(1.03);
+    box-shadow: var(--shadow-xl);
+}
+
+.vank:active, .bar:active, .barakapakcutyun:active {
+    transform: translateX(-50%) translateY(-2px) scale(0.98);
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+.grass {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 140px;
+    background: linear-gradient(to top, #78c850 60%, rgba(120, 200, 80, 0.8) 80%, transparent 100%);
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 15px;
+    gap: 20px;
+}
+
+.grass::before,
+.grass::after {
+    content: '🌸🌿🌼🌷';
+    font-size: 90px;
+    animation: sway 4s ease-in-out infinite alternate;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+}
+
+@keyframes sway {
+    from { transform: translateX(0px) rotate(-3deg); }
+    to { transform: translateX(5px) rotate(3deg); }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+button a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.sun {
+    position: fixed;
+    top: -5%;
+    right: 8%;
+    transform: translateX(-50%);
+    font-size: 220px;
+    z-index: 1;
+    animation: sway 4s ease-in-out infinite alternate, rotate 25s linear infinite;
+    filter: drop-shadow(0 8px 16px rgba(255, 204, 0, 0.3));
+    opacity: 0.9;
+}
+
+.amp1 {
+    position: fixed;
+    top: -3%;
+    left: 12%;
+    font-size: 160px;
+    z-index: 1;
+    animation: sway 5s ease-in-out infinite alternate;
+    filter: drop-shadow(0 4px 8px rgba(255,255,255,0.2));
+    opacity: 0.85;
+}
+
+.amp2 {
+    position: fixed;
+    top: -3%;
+    left: 0%;
+    font-size: 160px;
+    z-index: 1;
+    animation: sway 4.5s ease-in-out infinite alternate;
+    filter: drop-shadow(0 4px 8px rgba(255,255,255,0.2));
+    opacity: 0.85;
+}
+
+.amp3 {
+    position: fixed;
+    top: -3%;
+    left: 70%;
+    font-size: 160px;
+    z-index: 1;
+    animation: sway 5.5s ease-in-out infinite alternate;
+    filter: drop-shadow(0 4px 8px rgba(255,255,255,0.2));
+    opacity: 0.85;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .text {
+        font-size: 3rem;
+        margin-top: 2.5rem;
+    }
+
+    .vank, .bar, .barakapakcutyun {
+        font-size: 1.3rem;
+        padding: 1.1rem 2.2rem;
+        min-width: 260px;
+    }
+
+    .vank {
+        top: 28%;
+    }
+
+    .bar {
+        top: 42%;
+    }
+
+    .barakapakcutyun {
+        top: 56%;
+    }
+
+    .sun {
+        font-size: 180px;
+        right: 6%;
+    }
+
+    .amp1, .amp2, .amp3 {
+        font-size: 130px;
+    }
+
+    .grass {
+        height: 120px;
+    }
+
+    .grass::before,
+    .grass::after {
+        font-size: 75px;
+    }
+}
+
+@media (max-width: 768px) {
+    .text {
+        font-size: 2.2rem;
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .vank, .bar, .barakapakcutyun {
+        font-size: 1.1rem;
+        padding: 1rem 1.8rem;
+        min-width: 240px;
+        letter-spacing: 0.3px;
+    }
+
+    .vank {
+        top: 30%;
+    }
+
+    .bar {
+        top: 45%;
+    }
+
+    .barakapakcutyun {
+        top: 60%;
+    }
+
+    .sun {
+        font-size: 140px;
+        top: -3%;
+        right: 5%;
+    }
+
+    .amp1, .amp2, .amp3 {
+        font-size: 100px;
+        top: -2%;
+    }
+
+    .amp1 {
+        left: 8%;
+    }
+
+    .amp2 {
+        left: -2%;
+    }
+
+    .amp3 {
+        left: 65%;
+    }
+
+    .grass {
+        height: 100px;
+    }
+
+    .grass::before,
+    .grass::after {
+        font-size: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .text {
+        font-size: 1.75rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .vank, .bar, .barakapakcutyun {
+        font-size: 0.95rem;
+        padding: 0.875rem 1.5rem;
+        min-width: 200px;
+        letter-spacing: 0.2px;
+    }
+
+    .vank {
+        top: 28%;
+    }
+
+    .bar {
+        top: 43%;
+    }
+
+    .barakapakcutyun {
+        top: 58%;
+    }
+
+    .sun {
+        font-size: 100px;
+        top: -2%;
+        right: 0%;
+    }
+
+    .amp1, .amp2, .amp3 {
+        font-size: 70px;
+        top: -1%;
+    }
+
+    .amp1 {
+        left: 3%;
+    }
+
+    .amp2 {
+        left: -5%;
+    }
+
+    .amp3 {
+        left: 60%;
+    }
+
+    .grass {
+        height: 80px;
+    }
+
+    .grass::before,
+    .grass::after {
+        font-size: 45px;
+    }
+}

@@ -1,0 +1,582 @@
+:root {
+  --primary-gradient: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+  --bg: linear-gradient(180deg, #87ceeb 0%, #e0f6ff 50%, #fff9c4 100%);
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.16);
+  --shadow-xl: 0 12px 32px rgba(0,0,0,0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    background: var(--bg);
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.sky-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #87ceeb 0%, #b0e0e6 40%, #e0f6ff 70%, #fff9c4 100%);
+    z-index: -1;
+}
+
+.cloud {
+    position: fixed;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50px;
+    z-index: 0;
+    animation: float 20s infinite ease-in-out;
+}
+
+.cloud::before,
+.cloud::after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50px;
+}
+
+.cloud1 {
+    width: 100px;
+    height: 40px;
+    top: 10%;
+    left: 10%;
+    animation-duration: 25s;
+}
+
+.cloud1::before {
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    left: 10px;
+}
+
+.cloud1::after {
+    width: 60px;
+    height: 60px;
+    top: -35px;
+    right: 10px;
+}
+
+.cloud2 {
+    width: 120px;
+    height: 45px;
+    top: 15%;
+    right: 15%;
+    animation-duration: 30s;
+    animation-delay: -5s;
+}
+
+.cloud2::before {
+    width: 55px;
+    height: 55px;
+    top: -28px;
+    left: 15px;
+}
+
+.cloud2::after {
+    width: 65px;
+    height: 65px;
+    top: -38px;
+    right: 15px;
+}
+
+.cloud3 {
+    width: 90px;
+    height: 35px;
+    top: 25%;
+    left: 50%;
+    animation-duration: 22s;
+    animation-delay: -10s;
+}
+
+.cloud3::before {
+    width: 45px;
+    height: 45px;
+    top: -22px;
+    left: 8px;
+}
+
+.cloud3::after {
+    width: 55px;
+    height: 55px;
+    top: -30px;
+    right: 8px;
+}
+
+.cloud4 {
+    width: 110px;
+    height: 42px;
+    top: 5%;
+    left: 70%;
+    animation-duration: 28s;
+    animation-delay: -15s;
+}
+
+.cloud4::before {
+    width: 52px;
+    height: 52px;
+    top: -26px;
+    left: 12px;
+}
+
+.cloud4::after {
+    width: 62px;
+    height: 62px;
+    top: -36px;
+    right: 12px;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateX(0) translateY(0);
+    }
+    25% {
+        transform: translateX(20px) translateY(-10px);
+    }
+    50% {
+        transform: translateX(-15px) translateY(5px);
+    }
+    75% {
+        transform: translateX(10px) translateY(-5px);
+    }
+}
+
+.sun {
+    position: fixed;
+    top: 5%;
+    right: 8%;
+    font-size: 4rem;
+    z-index: 0;
+    animation: rotate 20s linear infinite, pulse 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.flower {
+    position: fixed;
+    font-size: 2.5rem;
+    z-index: 0;
+    animation: sway 4s ease-in-out infinite;
+}
+
+.flower1 {
+    bottom: 15%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.flower2 {
+    bottom: 12%;
+    left: 15%;
+    animation-delay: 0.5s;
+}
+
+.flower3 {
+    bottom: 18%;
+    right: 8%;
+    animation-delay: 1s;
+}
+
+.flower4 {
+    bottom: 14%;
+    right: 18%;
+    animation-delay: 1.5s;
+}
+
+.flower5 {
+    bottom: 16%;
+    left: 50%;
+    animation-delay: 2s;
+}
+
+@keyframes sway {
+    0%, 100% {
+        transform: rotate(-5deg) translateY(0);
+    }
+    50% {
+        transform: rotate(5deg) translateY(-10px);
+    }
+}
+
+.butterfly {
+    position: fixed;
+    font-size: 2rem;
+    z-index: 0;
+    animation: flutter 6s ease-in-out infinite;
+}
+
+.butterfly1 {
+    top: 30%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.butterfly2 {
+    top: 40%;
+    right: 25%;
+    animation-delay: 2s;
+}
+
+@keyframes flutter {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(30px, -20px) rotate(10deg);
+    }
+    50% {
+        transform: translate(-20px, 15px) rotate(-10deg);
+    }
+    75% {
+        transform: translate(15px, -10px) rotate(5deg);
+    }
+}
+
+.star {
+    position: fixed;
+    font-size: 1.5rem;
+    z-index: 0;
+    animation: twinkle 2s ease-in-out infinite;
+}
+
+.star1 {
+    top: 20%;
+    left: 30%;
+    animation-delay: 0s;
+}
+
+.star2 {
+    top: 35%;
+    left: 60%;
+    animation-delay: 0.4s;
+}
+
+.star3 {
+    top: 50%;
+    left: 25%;
+    animation-delay: 0.8s;
+}
+
+.star4 {
+    top: 45%;
+    right: 30%;
+    animation-delay: 1.2s;
+}
+
+.star5 {
+    top: 28%;
+    right: 15%;
+    animation-delay: 1.6s;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.3);
+    }
+}
+
+.divaragutyun {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    padding: 0 1rem;
+    animation: fadeInDown 0.6s ease-out;
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.d1, .d2, .d3 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.d1:hover, .d2:hover, .d3:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.l1, .l2, .l3 {
+    font-size: 1.75rem;
+    color: #b00;
+    margin-right: 0;
+    font-weight: 700;
+}
+
+.inputaragutyun {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    accent-color: #b00;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.inputaragutyun:hover {
+    transform: scale(1.1);
+    border-color: #b00;
+}
+
+.vank-container {
+    position: relative;
+    max-width: 90%;
+    width: 850px;
+    height: 140px;
+    overflow: hidden;
+    margin: 3rem auto 0 auto;
+    background: var(--card-bg);
+    border-radius: 20px;
+    box-shadow: var(--shadow-xl);
+    border: 3px solid rgba(255, 182, 193, 0.6);
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+    z-index: 1;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.vankdiv1 {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 100%;
+    font-size: 5rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 140px;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    color: rgb(255, 0, 0);
+    font-family: Arial, sans-serif;
+    user-select: none;
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    padding: 1rem;
+    border-radius: 20px;
+    box-sizing: border-box;
+    font-weight: 700;
+    text-shadow: 0 2px 8px rgba(255, 0, 0, 0.2);
+}
+
+.hetgnal {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.125rem 2.25rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--primary-gradient);
+    border: none;
+    border-radius: 50px;
+    box-shadow: var(--shadow-lg);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 1px;
+    min-width: 140px;
+    text-align: center;
+    outline: none;
+    z-index: 100;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.hetgnal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+.hetgnal:hover::before {
+    left: 100%;
+}
+
+
+.hetgnal:hover, .hetgnal:focus {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: var(--shadow-xl);
+}
+
+.hetgnal:active {
+    transform: translateY(-2px) scale(1.02);
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .vank-container {
+        max-width: 85%;
+        height: 130px;
+    }
+
+    .vankdiv1 {
+        font-size: 4.375rem;
+        line-height: 130px;
+    }
+
+    .divaragutyun {
+        gap: 1.25rem;
+        margin-top: 1.75rem;
+    }
+
+    .l1, .l2, .l3 {
+        font-size: 1.5rem;
+    }
+
+    .inputaragutyun {
+        width: 26px;
+        height: 26px;
+    }
+
+    .hetgnal {
+        font-size: 1.375rem;
+        padding: 1rem 2rem;
+        min-width: 120px;
+        bottom: 1.75rem;
+        left: 1.75rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .vank-container {
+        max-width: 95%;
+        height: 120px;
+        margin-top: 2.5rem;
+    }
+
+    .vankdiv1 {
+        font-size: 3.5rem;
+        line-height: 120px;
+    }
+
+    .divaragutyun {
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    .l1, .l2, .l3 {
+        font-size: 1.25rem;
+    }
+
+    .inputaragutyun {
+        width: 24px;
+        height: 24px;
+    }
+
+    .hetgnal {
+        font-size: 1.125rem;
+        padding: 0.875rem 1.75rem;
+        min-width: 110px;
+        letter-spacing: 0.5px;
+        bottom: 1.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 480px) {
+    .vank-container {
+        max-width: 95%;
+        height: 100px;
+        margin-top: 2rem;
+        border-radius: 16px;
+    }
+
+    .vankdiv1 {
+        font-size: 2.5rem;
+        line-height: 100px;
+        border-radius: 16px;
+    }
+
+    .divaragutyun {
+        gap: 0.75rem;
+        margin-top: 1.25rem;
+        flex-direction: column;
+    }
+
+    .l1, .l2, .l3 {
+        font-size: 1.125rem;
+    }
+
+    .inputaragutyun {
+        width: 22px;
+        height: 22px;
+    }
+
+    .hetgnal {
+        font-size: 1rem;
+        padding: 0.75rem 1.5rem;
+        min-width: 100px;
+        letter-spacing: 0.3px;
+        bottom: 1.25rem;
+        border-radius: 40px;
+    }
+}

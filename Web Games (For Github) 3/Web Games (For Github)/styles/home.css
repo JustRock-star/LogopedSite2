@@ -1,0 +1,382 @@
+:root {
+  --bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --window-bg: rgba(255, 255, 255, 0.95);
+  --text: #2d3748;
+  --btn-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --btn-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --btn-hover: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+  --shadow-xl: 0 20px 40px rgba(0,0,0,0.2);
+  --radius: 16px;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.container {
+  text-align: center;
+  padding: 3rem 2.5rem;
+  background: var(--window-bg);
+  backdrop-filter: blur(20px);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-xl);
+  max-width: 480px;
+  width: 90%;
+  z-index: 10;
+  position: relative;
+  animation: fadeInUp 0.6s ease-out;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+p {
+  margin-bottom: 2.5rem;
+  font-size: 1.15rem;
+  color: #4a5568;
+  font-weight: 400;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.875rem 2rem;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: none;
+  cursor: pointer;
+  min-width: 200px;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn.primary {
+  background: var(--btn-primary);
+  color: white;
+}
+
+.btn.secondary {
+  background: var(--btn-secondary);
+  color: white;
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+.grass {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 140px;
+    background: linear-gradient(to top, #78c850 60%, rgba(120, 200, 80, 0.8) 80%, transparent 100%);
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 15px;
+    gap: 20px;
+}
+
+.grass::before,
+.grass::after {
+    content: '🌸🌿🌼🌷';
+    font-size: 90px;
+    animation: sway 4s ease-in-out infinite alternate;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+}
+
+@keyframes sway {
+    from { transform: translateX(0px) rotate(-3deg); }
+    to { transform: translateX(5px) rotate(3deg); }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+button a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.sun {
+    position: fixed;
+    top: -5%;
+    right: 8%;
+    transform: translateX(-50%);
+    font-size: 220px;
+    z-index: 1;
+    animation: sway 4s ease-in-out infinite alternate, rotate 25s linear infinite;
+    filter: drop-shadow(0 8px 16px rgba(255, 204, 0, 0.3));
+    opacity: 0.9;
+}
+
+.amp1 {
+    position: fixed;
+    top: -3%;
+    left: 12%;
+    font-size: 160px;
+    z-index: 1;
+    animation: sway 5s ease-in-out infinite alternate;
+    filter: drop-shadow(0 4px 8px rgba(255,255,255,0.2));
+    opacity: 0.85;
+}
+
+.amp2 {
+    position: fixed;
+    top: -3%;
+    left: 0%;
+    font-size: 160px;
+    z-index: 1;
+    animation: sway 4.5s ease-in-out infinite alternate;
+    filter: drop-shadow(0 4px 8px rgba(255,255,255,0.2));
+    opacity: 0.85;
+}
+
+.amp3 {
+    position: fixed;
+    top: -3%;
+    left: 70%;
+    font-size: 160px;
+    z-index: 1;
+    animation: sway 5.5s ease-in-out infinite alternate;
+    filter: drop-shadow(0 4px 8px rgba(255,255,255,0.2));
+    opacity: 0.85;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        max-width: 420px;
+        padding: 2.5rem 2rem;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    p {
+        font-size: 1.05rem;
+    }
+
+    .btn {
+        padding: 0.8rem 1.8rem;
+        font-size: 0.95rem;
+        min-width: 180px;
+    }
+
+    .sun {
+        font-size: 180px;
+        right: 6%;
+    }
+
+    .amp1, .amp2, .amp3 {
+        font-size: 130px;
+    }
+
+    .grass {
+        height: 120px;
+    }
+
+    .grass::before,
+    .grass::after {
+        font-size: 75px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    .container {
+        max-width: 100%;
+        padding: 2rem 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0.8rem;
+    }
+
+    p {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 0.875rem;
+    }
+
+    .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.95rem;
+        width: 100%;
+        min-width: auto;
+    }
+
+    .sun {
+        font-size: 140px;
+        top: -3%;
+        right: 5%;
+    }
+
+    .amp1, .amp2, .amp3 {
+        font-size: 100px;
+        top: -2%;
+    }
+
+    .amp1 {
+        left: 8%;
+    }
+
+    .amp2 {
+        left: -2%;
+    }
+
+    .amp3 {
+        left: 65%;
+    }
+
+    .grass {
+        height: 100px;
+    }
+
+    .grass::before,
+    .grass::after {
+        font-size: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1.5rem 1.25rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.6rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+        margin-bottom: 1.75rem;
+    }
+
+    .btn {
+        padding: 0.7rem 1.25rem;
+        font-size: 0.9rem;
+    }
+
+    .sun {
+        font-size: 100px;
+        top: -2%;
+        right: 0%;
+    }
+
+    .amp1, .amp2, .amp3 {
+        font-size: 70px;
+        top: -1%;
+    }
+
+    .amp1 {
+        left: 3%;
+    }
+
+    .amp2 {
+        left: -5%;
+    }
+
+    .amp3 {
+        left: 60%;
+    }
+
+    .grass {
+        height: 80px;
+    }
+
+    .grass::before,
+    .grass::after {
+        font-size: 45px;
+    }
+}
